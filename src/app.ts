@@ -8,8 +8,15 @@ class Project {
 // project state management
 type Listener = (items: Project[]) => void
 
-class ProjectState {
+class State {
     private listeners: Listener[] = []
+    
+    addListener(listenerFn: Listener) {
+        this.listeners.push(listenerFn)
+    }
+}
+
+class ProjectState {
     private projects: Project[] = []
     private static instance: ProjectState
 
@@ -23,10 +30,6 @@ class ProjectState {
         }
         this.instance = new ProjectState
         return this.instance
-    }
-
-    addListener(listenerFn: Listener) {
-        this.listeners.push(listenerFn)
     }
 
     addProject(title: string, description: string, numOfPeople: number) {
