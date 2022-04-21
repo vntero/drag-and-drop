@@ -84,6 +84,13 @@ function autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
     return adjDescriptor
 }
 
+// component base class
+class Component {
+    templateElement: HTMLTemplateElement
+    hostElement: HTMLDivElement
+    element: HTMLElement
+}
+
 // project list class
 class ProjectList {
     templateElement: HTMLTemplateElement
